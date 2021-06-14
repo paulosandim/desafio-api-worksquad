@@ -1,0 +1,2073 @@
+{
+	"info": {
+		"_postman_id": "f9b84b6f-d88b-4b7a-9631-22328994a6db",
+		"name": "Hunter API",
+		"description": "Coleção de Testes para o Projeto Learning QA, onde verificamos a saúde dos recursos da API Hunter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "Criar novo lead",
+					"item": [
+						{
+							"name": "Novo lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"{{email_lead}}\")\r",
+											"pm.iterationData.get(\"{{first_name_lead}}\")\r",
+											"pm.iterationData.get(\"{{last_name_lead}}\")\r",
+											"pm.iterationData.get(\"{{position_lead}}\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://api.hunter.io/v2/",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//     \"email\": \"{{email_lead}}\",\r\n//     \"first_name\": \"{{first_name_lead}}\",\r\n//     \"last_name\": \"{{last_name_lead}}\",\r\n//     \"position\": \"{{position_lead}}\"\r\n// }\r\n\r\n{\r\n    \"email\": \"paulo@mail.com\",\r\n    \"first_name\": \"teste\",\r\n    \"last_name\": \"mail@mail.com\",\r\n    \"position\": \"QA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200, 201 ou 202\n- String 'Created' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Novo lead",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://api.hunter.io/v2/",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\r\n//     \"email\": \"{{email_lead}}\",\r\n//     \"first_name\": \"{{first_name_lead}}\",\r\n//     \"last_name\": \"{{last_name_lead}}\",\r\n//     \"position\": \"{{position_lead}}\"\r\n// }\r\n\r\n{\r\n    \"email\": \"paulo@mail.com\",\r\n    \"first_name\": \"teste\",\r\n    \"last_name\": \"mail@mail.com\",\r\n    \"position\": \"QA\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads",
+											"host": [
+												"{{url_base}}leads"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:53:49 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "201 Created"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "22496ad0-2c41-472a-9a14-783acd63bca5"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Location",
+											"value": "https://api.hunter.io/v2/leads/79265043"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"d6d26faa9e3e453cfe5565018070b1d4\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.210061"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd3b88900004d24fe91f000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bbd40aa84d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 79265043,\n        \"email\": \"paulo@mail.com\",\n        \"first_name\": \"teste\",\n        \"last_name\": \"mail@mail.com\",\n        \"position\": \"QA\",\n        \"company\": null,\n        \"company_industry\": null,\n        \"confidence_score\": null,\n        \"website\": null,\n        \"country_code\": null,\n        \"company_size\": null,\n        \"source\": null,\n        \"linkedin_url\": null,\n        \"phone_number\": null,\n        \"twitter\": null,\n        \"sync_status\": null,\n        \"notes\": null,\n        \"sending_status\": null,\n        \"last_activity_at\": null,\n        \"last_contacted_at\": null,\n        \"leads_list\": {\n            \"id\": 2977336,\n            \"name\": \"lista_paulo_edit5\",\n            \"leads_count\": 0\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Recuperar todos leads cadastrados",
+					"item": [
+						{
+							"name": "Todos leads",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://api.hunter.io/v2/",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Todos leads",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://api.hunter.io/v2/",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url_base}}leads",
+											"host": [
+												"{{url_base}}leads"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:00 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "200 OK"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "44ce81c1-39f7-4f8d-afa0-bc41de0b2eaf"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6fdc9a4c87f9597ad81bf3008634586e\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.088282"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd3e15100004d24a982b000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bc1548c54d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"leads\": [\n            {\n                \"id\": 79265043,\n                \"email\": \"paulo@mail.com\",\n                \"first_name\": \"teste\",\n                \"last_name\": \"mail@mail.com\",\n                \"position\": \"QA\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2977336,\n                    \"name\": \"lista_paulo_edit5\",\n                    \"leads_count\": 1\n                }\n            },\n            {\n                \"id\": 79254138,\n                \"email\": \"paulo4@mail.com\",\n                \"first_name\": \"paulo4\",\n                \"last_name\": \"teste4\",\n                \"position\": \"QA4\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2975521,\n                    \"name\": \"Paulo's leads\",\n                    \"leads_count\": 5\n                }\n            },\n            {\n                \"id\": 79254135,\n                \"email\": \"paulo3@mail.com\",\n                \"first_name\": \"paulo3\",\n                \"last_name\": \"teste3\",\n                \"position\": \"QA3\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2975521,\n                    \"name\": \"Paulo's leads\",\n                    \"leads_count\": 5\n                }\n            },\n            {\n                \"id\": 79254132,\n                \"email\": \"paulo2@mail.com\",\n                \"first_name\": \"paulo2\",\n                \"last_name\": \"teste2\",\n                \"position\": \"QA2\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2975521,\n                    \"name\": \"Paulo's leads\",\n                    \"leads_count\": 5\n                }\n            },\n            {\n                \"id\": 79254129,\n                \"email\": \"paulo1@mail.com\",\n                \"first_name\": \"paulo1\",\n                \"last_name\": \"teste1\",\n                \"position\": \"QA1\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2975521,\n                    \"name\": \"Paulo's leads\",\n                    \"leads_count\": 5\n                }\n            },\n            {\n                \"id\": 79254128,\n                \"email\": \"paulo@mail.com\",\n                \"first_name\": \"paulo\",\n                \"last_name\": \"teste\",\n                \"position\": \"QA\",\n                \"company\": null,\n                \"company_industry\": null,\n                \"confidence_score\": null,\n                \"website\": null,\n                \"country_code\": null,\n                \"company_size\": null,\n                \"source\": null,\n                \"linkedin_url\": null,\n                \"phone_number\": null,\n                \"twitter\": null,\n                \"sync_status\": null,\n                \"notes\": null,\n                \"sending_status\": null,\n                \"last_activity_at\": null,\n                \"last_contacted_at\": null,\n                \"leads_list\": {\n                    \"id\": 2975521,\n                    \"name\": \"Paulo's leads\",\n                    \"leads_count\": 5\n                }\n            }\n        ]\n    },\n    \"meta\": {\n        \"count\": 6,\n        \"total\": 6,\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Lead específico",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://api.hunter.io/v2/",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no response code\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Lead específico",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://api.hunter.io/v2/",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url_base}}leads/{{id_lead}}",
+											"host": [
+												"{{url_base}}leads"
+											],
+											"path": [
+												"{{id_lead}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "200 OK"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "1c1edd08-2ca3-4c53-a5f0-150ea16afba7"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d943a543ffab87ab3104a5b00cf99de\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.047188"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd4030100004d24e9126000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bc4b3b664d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 79265043,\n        \"email\": \"paulo@mail.com\",\n        \"first_name\": \"teste\",\n        \"last_name\": \"mail@mail.com\",\n        \"position\": \"QA\",\n        \"company\": null,\n        \"company_industry\": null,\n        \"confidence_score\": null,\n        \"website\": null,\n        \"country_code\": null,\n        \"company_size\": null,\n        \"source\": null,\n        \"linkedin_url\": null,\n        \"phone_number\": null,\n        \"twitter\": null,\n        \"sync_status\": null,\n        \"notes\": null,\n        \"sending_status\": null,\n        \"last_activity_at\": null,\n        \"last_contacted_at\": null,\n        \"leads_list\": {\n            \"id\": 2977336,\n            \"name\": \"lista_paulo_edit5\",\n            \"leads_count\": 1\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Editar lead",
+					"item": [
+						{
+							"name": "Editar um lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"{{email_lead_edit}}\")\r",
+											"pm.iterationData.get(\"{{first_name_lead_edit}}\")\r",
+											"pm.iterationData.get(\"{{last_name_lead_edit}}\")\r",
+											"pm.iterationData.get(\"{{position_lead_edit}}\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//     \"email\": \"{{email_lead_edit}}\",\r\n//     \"first_name\": \"{{first_name_lead_edit}}\",\r\n//     \"last_name\": \"{{last_name_lead_edit}}\",\r\n//     \"position\": \"{{position_lead_edit}}\"\r\n// }\r\n\r\n{\r\n    \"email\": \"novo@mail.com\",\r\n    \"first_name\": \"pedro\",\r\n    \"last_name\": \"testando\",\r\n    \"position\": \"Engenheiro\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 204\n- String 'No Content' no response code"
+							},
+							"response": [
+								{
+									"name": "Editar um lead",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\r\n//     \"email\": \"{{email_lead_edit}}\",\r\n//     \"first_name\": \"{{first_name_lead_edit}}\",\r\n//     \"last_name\": \"{{last_name_lead_edit}}\",\r\n//     \"position\": \"{{position_lead_edit}}\"\r\n// }\r\n\r\n{\r\n    \"email\": \"novo@mail.com\",\r\n    \"first_name\": \"pedro\",\r\n    \"last_name\": \"testando\",\r\n    \"position\": \"Engenheiro\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads/{{id_lead}}",
+											"host": [
+												"{{url_base}}leads"
+											],
+											"path": [
+												"{{id_lead}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "204 No Content"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "f58bcbc1-56b1-4f92-84b2-961290fcf637"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "1.350499"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd41c9200004d24c03a4000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bc7418654d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Excluir lead",
+					"item": [
+						{
+							"name": "Excluir lead",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://api.hunter.io/v2/",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 204\n- String 'No Content' no response code"
+							},
+							"response": [
+								{
+									"name": "Excluir lead",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://api.hunter.io/v2/",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url_base}}leads/{{id_lead}}",
+											"host": [
+												"{{url_base}}leads"
+											],
+											"path": [
+												"{{id_lead}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "204 No Content"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "5b95d628-7387-4475-bd24-604712bce7cb"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.100321"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd43e4e00004d24f19fe000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bcaa1d2e4d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Suites de Testes para o Recurso Leads",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Leads Lists",
+			"item": [
+				{
+					"name": "Criar nova lista de lead",
+					"item": [
+						{
+							"name": "Nova leads lists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"{{name_leads_lists}}\")\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//   \"name\": \"{{name_leads_lists}}\"\r\n// }\r\n\r\n{\r\n  \"name\": \"lista paulo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200, 201 ou 202\n- String 'Created' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Nova leads lists",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\r\n//   \"name\": \"{{name_leads_lists}}\"\r\n// }\r\n\r\n{\r\n  \"name\": \"lista paulo\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads_lists",
+											"host": [
+												"{{url_base}}leads_lists"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:49 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "201 Created"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "c2973c3b-fd28-4af5-8293-cb92adcc8401"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Location",
+											"value": "https://api.hunter.io/v2/leads_lists/2977544"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3dfe1ad482e5dc9a9714dae70d5f4dd9\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.065289"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd4a21100004d2401301000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bd49be384d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"list_id\": 2977544,\n        \"name\": \"lista paulo\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Recuperar todas listas de leads cadastradas",
+					"item": [
+						{
+							"name": "Todos leads lists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Todos leads lists",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}leads_lists",
+											"host": [
+												"{{url_base}}leads_lists"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:54:55 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "200 OK"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "06b84361-b7ec-4c2e-b54e-98961ae3da17"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"98c2c4bceb9eadace8d2e5a2e298e1fe\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.038598"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd4b9fb00004d24a7095000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bd6ffd604d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"leads_lists\": [\n            {\n                \"id\": 2977544,\n                \"name\": \"lista paulo\",\n                \"leads_count\": 0\n            },\n            {\n                \"id\": 2977336,\n                \"name\": \"lista_paulo_edit5\",\n                \"leads_count\": 0\n            },\n            {\n                \"id\": 2975521,\n                \"name\": \"Paulo's leads\",\n                \"leads_count\": 5\n            }\n        ]\n    },\n    \"meta\": {\n        \"total\": 3,\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Leads ists específico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no response code\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Leads ists específico",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:55:02 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "200 OK"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "5a7b6443-b464-42cd-a661-c6c0b9f540f9"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"c78216ed613d38a054c75ae45837a922\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.036865"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd4d38200004d241492d000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bd98c91f4d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"name\": \"lista paulo\",\n        \"leads_count\": 0,\n        \"leads\": []\n    },\n    \"meta\": {\n        \"params\": {\n            \"limit\": 20,\n            \"offset\": 0,\n            \"leads_list_id\": 2977544\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Editar lista de lead",
+					"item": [
+						{
+							"name": "Editar uma leads lists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"{{name_leads_lists_edit}}\")\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//   \"name\": \"{{name_leads_lists_edit}}\"\r\n// }\r\n\r\n{\r\n  \"name\": \"pedro lista\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 204\n- String 'No Content' no response code"
+							},
+							"response": [
+								{
+									"name": "Editar uma leads lists",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\r\n//   \"name\": \"{{name_leads_lists_edit}}\"\r\n// }\r\n\r\n{\r\n  \"name\": \"pedro lista\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:55:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "204 No Content"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "ed33973d-98f0-4401-9066-fe1ca3689506"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.078189"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd4f61f00004d24c7bcb000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bdd038c14d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Excluir lista de lead",
+					"item": [
+						{
+							"name": "Excluir leads lists",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 204\n- String 'No Content' no response code"
+							},
+							"response": [
+								{
+									"name": "Excluir leads lists",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+											"host": [
+												"{{url_base}}leads_lists"
+											],
+											"path": [
+												"{{id_lead_list}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:55:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "204 No Content"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "c7e2eddb-e0af-46ab-b8e6-03b65ad1577f"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.067942"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd510e600004d24e331d000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4bdfb0cb04d24-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Suites de Testes para o Recurso Leads Lists"
+		},
+		{
+			"name": "Campaigns",
+			"item": [
+				{
+					"name": "Recuperar todas campaigns",
+					"item": [
+						{
+							"name": "Todas campaigns",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}campaigns",
+									"host": [
+										"{{url_base}}campaigns"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no status code do response\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Todas campaigns",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}campaigns",
+											"host": [
+												"{{url_base}}campaigns"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:55:25 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "200 OK"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "a757d085-29d8-4bcb-ac6f-e1a37961d2fb"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Email-Hunter-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5d296642d413c03127befdb742e8a0c6\""
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.046174"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-User",
+											"value": "2749376"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd52e7600004d2422b54000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4be2a5aa94d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"campaigns\": []\n    },\n    \"meta\": {\n        \"limit\": 20,\n        \"offset\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Campaigns específica",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}campaigns/{{id_campaigns}}",
+									"host": [
+										"{{url_base}}campaigns"
+									],
+									"path": [
+										"{{id_campaigns}}"
+									]
+								},
+								"description": "Resultados esperados:\n- Status code: 200\n- String 'OK' no response code\n- Tempo de execução < 2 seg"
+							},
+							"response": [
+								{
+									"name": "Campaigns específica",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url_base}}campaigns/{{id_campaigns}}",
+											"host": [
+												"{{url_base}}campaigns"
+											],
+											"path": [
+												"{{id_campaigns}}"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jun 2021 15:55:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Status",
+											"value": "404 Not Found"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "interest-cohort=()"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "6b7b2702-233d-4619-a5e4-7014260cdb92"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.015431"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0aacd548ad00004d2414300000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "65f4be544c614d24-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>404 Not Found • Hunter</title>\n        <meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\">\n        <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n        <link href=\"https://resources-help-center.hunter.io/images/favicon.ico\" rel=\"icon\" type=\"image/png\" />\n        <link href=\"https://fonts.googleapis.com/css?family=Lato:500,300,700\" rel=\"stylesheet\" type=\"text/css\">\n        <style>\n      .dialog {\n        text-align: center;\n        margin: 50px auto;\n        max-width: 600px;\n        padding: 20px;\n      }\n\n      body {\n        font-family: \"Lato\", sans-serif;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n      }\n\n      h1 {\n        font-weight: bold;\n        color: #555;\n        margin-top: 0;\n      }\n\n      p {\n        font-size: 18px;\n        color: #888;\n        line-height: 30px;\n      }\n\n      p a, p a:hover, p a:focus {\n        color: #888;\n        text-decoration: none;\n        border-bottom: 1px dotted #888;\n      }\n\n      .error-code {\n        font-size: 250px;\n        color: #eee;\n        font-weight: 600;\n      }\n\n      .cta {\n        margin: 10px 5px;\n        font-weight: 700;\n        display: inline-block;\n        text-decoration: none;\n        padding: 16px 22px;\n        font-size: 16px;\n        color: #fff;\n        background: #ff5722;\n        -webkit-transition: background-color 200ms ease-in-out;\n        -moz-transition: background-color 200ms ease-in-out;\n        -ms-transition: background-color 200ms ease-in-out;\n        transition: background-color 200ms ease-in-out;\n        border-radius: 3px;\n        -moz-border-radius: 3px;\n        -webkit-border-radius: 3px;\n      }\n\n      .cta:hover {\n        background: #ee3900;\n        color: #fff;\n      }\n\n      .cta:focus {\n        color: #fff;\n        background: #B2381A;\n      }\n\n      ::selection {\n        background: #333;\n        color: #fff;\n      }\n    </style>\n    </head>\n    <body>\n        <div class=\"dialog\">\n            <div class=\"error-code\">404</div>\n            <h1>Page not found.</h1>\n            <p>This page doesn't seem to exist. If you think there should definitely be something here, please email us at \n                <a href=\"mailto:contact@hunter.io\">contact@hunter.io</a>.\n            </p>\n            <a class=\"cta\" href=\"https://hunter.io\">Homepage</a>\n            <a class=\"cta\" href=\"https://hunter.io/search\">Dashboard</a>\n        </div>\n        <script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{\"rayId\":\"65f4be544c614d24\",\"token\":\"9ee2680078d34fcdb56d3bd7d8d20827\",\"version\":\"2021.5.2\",\"si\":10}'></script>\n    </body>\n</html>"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Suites de Testes para o Recurso Campaigns"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "217388bf43eecfb66beee693bb37b3fc4de16ac4",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"/* ",
+					"    Testes para as requisições GET",
+					"    Status code 200",
+					"    String 'OK' no reponse code ",
+					"*/ ",
+					"",
+					"if(pm.request.method == 'GET') {",
+					"",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"OK\");",
+					"    });",
+					"",
+					"}",
+					"",
+					"/* ",
+					"    Testes para as requisições GET e POST",
+					"    Execução em menos de 2seg",
+					"*/ ",
+					"",
+					"if(pm.request.method == 'GET' || pm.request.method == 'POST') {",
+					"",
+					"    pm.test(\"Response time is less than 2000ms\", function () {",
+					"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"    });",
+					"",
+					"}",
+					"",
+					"/* ",
+					"    Testes para as requisições POST",
+					"    Status code: 200, 201, 202",
+					"    Sucesso nas requisições de POST",
+					"    String 'Created' no response code",
+					"*/ ",
+					"",
+					"if(pm.request.method == 'POST') {",
+					"",
+					"    pm.test(\"Successful POST request\", function () {",
+					"        pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+					"    });",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"Created\");",
+					"    });",
+					"}",
+					"",
+					"if(pm.info.requestName == 'Novo lead') {",
+					"    pm.environment.set(\"id_lead\",pm.response.json().data.id);",
+					"",
+					"}",
+					"",
+					"if(pm.info.requestName == 'Nova leads lists') {",
+					"    pm.environment.set(\"id_lead_list\",pm.response.json().data.list_id);",
+					"}",
+					"",
+					"/* ",
+					"    Testes para as requisições DELETE E PUT",
+					"    Status code 204",
+					"    String 'No content' no reponse code ",
+					"*/ ",
+					"",
+					"if(pm.request.method == 'DELETE'|| pm.request.method == 'PUT') {",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"No content\");",
+					"    });",
+					"",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"",
+					"}"
+				]
+			}
+		}
+	]
+}
