@@ -7,6 +7,8 @@ Observações:
 
 - A integração Postman API agora também é paga.
 
+- A pasta Dados contém arquivos para testes com dados externos.
+
 Autenticação:
 https://hunter.io/api-documentation/v2#authentication
 
