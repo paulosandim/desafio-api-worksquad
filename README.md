@@ -15,7 +15,8 @@ https://hunter.io/api-documentation/v2#authentication
 ## Link da Documentação
 https://documenter.getpostman.com/view/12428293/TzeUmoSb#19485ca9-67e9-4a89-8c2f-90c9a779a470
 
-## Para instalar o Newman HTML Reporter Extra:
+## Para instalar o Newman HTML Reporter Extra
 npm install -g newman-reporter-htmlextra
-## Para rodar o Newman HTML Reporter Extra:
+
+## Para rodar o Newman HTML Reporter Extra
 newman run caminho_da_coleção -r htmlextra
