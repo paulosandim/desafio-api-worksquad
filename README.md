@@ -1,5 +1,8 @@
 <a href="/desafio.pdf" target="_blank">Desafio WorkSquad</a>
 
+## Projeto JSON
+Arquivo ``Hunter API.postman_collection.json``
+
 ## Observações
 - Na nova versão do Postman não é mais possível testar de minuto em minuto na conta free, apenas de hora em hora. 
 
