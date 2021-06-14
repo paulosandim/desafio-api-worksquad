@@ -1,7 +1,13 @@
 <a href="/desafio.pdf" target="_blank">Desafio WorkSquad</a>
 
+## Plano de Testes do Desafio
+Arquivo ``plano_de_testes.xlsx``
+
 ## Projeto JSON
 Arquivo ``Hunter API.postman_collection.json``
+
+## Autenticação
+https://hunter.io/api-documentation/v2#authentication
 
 ## Observações
 - Na nova versão do Postman não é mais possível testar de minuto em minuto na conta free, apenas de hora em hora. 
@@ -11,9 +17,6 @@ Arquivo ``Hunter API.postman_collection.json``
 - A integração Postman API agora também é paga.
 
 - A pasta Dados contém arquivos para testes com dados externos.
-
-## Autenticação
-https://hunter.io/api-documentation/v2#authentication
 
 ## Link da Documentação
 https://documenter.getpostman.com/view/12428293/TzeUmoSb#19485ca9-67e9-4a89-8c2f-90c9a779a470
