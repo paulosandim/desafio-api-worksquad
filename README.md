@@ -1,4 +1,4 @@
-<a href="/desafio.pdf" target="_blank">PDF.</a>
+<a href="https://github.com/paulosandim/desafio-api-worksquad/blob/main/desafio.pdf" target="_blank"></a>
 
 
 Observações:
